@@ -150,3 +150,20 @@ ul {
 .container-lista {
     width: 100%;
 }
+
+
+.container-botoes {
+    display: flex;
+    gap: 10px;
+ }
+ 
+ .icone-editar, .icone-lixo {
+    cursor: pointer;
+ }
+
+ .icone-lixo{
+    background-image: url(img/delete.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;  
+ }

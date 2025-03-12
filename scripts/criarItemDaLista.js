@@ -2,7 +2,7 @@ import criarDiaDaSemana from "./criarDiaDaSemana.js";
 const inputItem = document.getElementById("input-item");
 let contador = 0;
 
-export function criarItemDalista (){
+export function criarItemDalista (moverParaComprados){
     
     if (inputItem.value === "") {
         alert("Por favor, insira um item!");
@@ -21,8 +21,23 @@ export function criarItemDalista (){
     const nomeItem = document.createElement("p");
     nomeItem.innerText = inputItem.value;
 
+    const iconeLixo = document.createElement ("i");
+    iconeLixo.classList.add ("icone-lixo");
+    const iconeEditar = document.createElement("i");
+    iconeEditar.classList.add ("icone-editar");
+
+    const containerBotoes = document.createElement ("div");
+    containerBotoes.classList.add ("container-botoes");
+
+    
+
     containerItemDaLista.appendChild(inputCheckbox);
     containerItemDaLista.appendChild(nomeItem);
+
+    containerBotoes.appendChild (iconeLixo);
+    containerBotoes.appendChild(iconeEditar);
+
+    containerItemDaLista.appendChild (containerBotoes)
     itemDaLista.appendChild(containerItemDaLista);
 
 
@@ -42,5 +57,18 @@ export function criarItemDalista (){
         }
     })
 
+    iconeLixo.addEventListener("click", () => {
+        excluirItem(itemDaLista)
+    })
+
+      // Função para riscar o item e movê-lo para "Comprados"
+  if (moverParaComprados) {
+    moverParaComprados(itemDaLista, inputCheckbox);
+  }
+
     return itemDaLista
+}
+
+export function excluirItem(item){
+    item.remove()
 }
