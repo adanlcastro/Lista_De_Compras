@@ -49,7 +49,7 @@ function moverParaComprados (item, checkbox){
     });
 }
 
-function atualizarVisibilidadeComprados(){
+export function atualizarVisibilidadeComprados(){
     if (listaComprados.children.length > 0){
         listaComprados.style.display = "block";
         tituloComprados.style.display = "block";
@@ -61,4 +61,7 @@ function atualizarVisibilidadeComprados(){
     }
 }
 
+
+
+atualizarVisibilidadeComprados()
 verificarListaVazia(listaDeCompras)

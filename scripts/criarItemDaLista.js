@@ -1,6 +1,8 @@
 import criarDiaDaSemana from "./criarDiaDaSemana.js";
 const inputItem = document.getElementById("input-item");
 let contador = 0;
+import { atualizarVisibilidadeComprados } from "../index.js";
+import verificarListaVazia from "./verificarListaVazia.js";
 
 export function criarItemDalista (moverParaComprados){
     
@@ -59,6 +61,7 @@ export function criarItemDalista (moverParaComprados){
 
     iconeLixo.addEventListener("click", () => {
         excluirItem(itemDaLista)
+        verificarListaVazia(itemDaLista)
     })
 
       // Função para riscar o item e movê-lo para "Comprados"
@@ -71,4 +74,5 @@ export function criarItemDalista (moverParaComprados){
 
 export function excluirItem(item){
     item.remove()
+    atualizarVisibilidadeComprados()
 }
